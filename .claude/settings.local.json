@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//private/tmp/**)",
+      "Bash(gh auth *)",
+      "Read(//Users/shunagas/.config/**)"
+    ]
+  }
+}
