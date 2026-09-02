@@ -1,3 +1,10 @@
 # 非公開の実数データ（暗号化版 *.csv.enc のみコミットする）
 sun_note/data/kpi_monthly.csv
 sun_youtube/data/kpi_monthly.csv
+
+# ローカル限定のMCP設定（Playwright等）
+.mcp.json
+
+# 作業中のスクリーンショット・Playwright一時ファイル（22時の夜間クリーンアップで削除）
+/*.png
+.playwright-mcp/

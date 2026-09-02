@@ -3,7 +3,24 @@
     "allow": [
       "Read(//private/tmp/**)",
       "Bash(gh auth *)",
-      "Read(//Users/shunagas/.config/**)"
+      "Read(//Users/shunagas/.config/**)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(python3 -c \"import uuid; print\\(str\\(uuid.uuid4\\(\\)\\)\\); print\\(str\\(uuid.uuid4\\(\\)\\)\\)\")",
+      "WebSearch",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://api.github.com/repos/shunagas/sun_ai)",
+      "Bash(python3 -c ' *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git branch *)",
+      "Bash(pip3 show *)",
+      "Bash(brew install *)",
+      "Bash(git filter-repo *)",
+      "Bash(git remote *)",
+      "Bash(git pull *)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "playwright"
+  ]
 }
