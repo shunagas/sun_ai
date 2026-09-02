@@ -20,15 +20,15 @@
 | 短期目標（1年） | 月1万円の副収入を得る |
 
 ## KPI（2026年末目標）
-| 指標 | 目標 | 2026.6.11時点（目標設定時） |
-|---|---|---|
-| YouTube動画数 | 長尺20本 | 長尺3本 |
-| YouTubeチャンネル登録者 | 500人 | 5人 |
-| note記事数 | 100本 | 81本 |
-| noteフォロワー | 200人 | 103人 |
-| LINE友達 | 15人 | 11人 |
+| 指標 | 目標 |
+|---|---|
+| YouTube動画数 | 長尺20本 |
+| YouTubeチャンネル登録者 | 500人 |
+| note記事数 | 100本 |
+| noteフォロワー | 200人 |
+| LINE友達 | 15人 |
 
-詳細な月次進捗は [sun_youtube/PROJECT.md](sun_youtube/PROJECT.md) / [sun_note/PROJECT.md](sun_note/PROJECT.md) を参照。
+実績値は非公開情報のため、暗号化データ（`sun_youtube/data/kpi_monthly.csv.enc` / `sun_note/data/kpi_monthly.csv.enc`）で管理。詳細な進捗管理は [sun_youtube/PROJECT.md](sun_youtube/PROJECT.md) / [sun_note/PROJECT.md](sun_note/PROJECT.md) を参照。
 
 ## 施策
 | 施策 | 状態 | 備考 |
