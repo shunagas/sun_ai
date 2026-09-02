@@ -81,3 +81,4 @@
 - [YouTube部門（sun_youtube）](sun_youtube/PROJECT.md)
 - [note部門（sun_note）](sun_note/PROJECT.md)
 - [企画部（sun_business）](sun_business/PROJECT.md) — note・YouTubeの先にある「事業化」（長期目標10年）を検討する部門。2026-09-03発足
+- [開発部（sun_develop）](sun_develop/PROJECT.md) — アプリ・ツール・サービスの開発を担当する部門。2026-09-03発足
