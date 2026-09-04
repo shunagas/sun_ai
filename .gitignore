@@ -8,3 +8,9 @@ sun_youtube/data/kpi_monthly.csv
 # 作業中のスクリーンショット・Playwright一時ファイル（22時の夜間クリーンアップで削除）
 /*.png
 .playwright-mcp/
+
+# 動画撮影素材（生データ）。容量が大きいためgit管理対象外。編集済みの最終成果物のみコミットする
+*.MOV
+*.mov
+/羽田センチュリオン/
+/香港ラウンジホップ/
