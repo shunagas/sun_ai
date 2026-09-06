@@ -20,6 +20,9 @@ awk -F, '$3=="planned"' sun_youtube/data/videos.csv
 grep 2026-10 sun_youtube/data/videos.csv
 ```
 
+## 制作方針・制約
+- 動画内で顔出しはしない。企画・サムネ・撮影方法の検討時はこの前提を踏まえること。
+
 ## 目標（2026年末）
 - 長尺動画20本
 - チャンネル登録者500人
