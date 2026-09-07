@@ -26,9 +26,8 @@ tail -10 sun_note/data/articles.csv
 - LINE友達 15人
 
 ## 直近スナップショット
-実際のKPI数値（PV・売上など）は非公開情報のため、このリポジトリでは`data/kpi_monthly.csv.enc`として暗号化して管理している。復号にはパスフレーズが必要（ユーザー本人とnightly routineのみ保有）。
+実際のKPI数値（PV・売上など）は`すん旅事業.xlsx`（進捗早見表シート）で管理する。旧`data/kpi_monthly.csv.enc`による暗号化管理は2026/9に廃止した。
 
-数値の更新は、ローカルの平文ファイルを編集後、暗号化して`.enc`を上書きする。
 新規記事の下書きは `/note-draft`、構想段階は `/note-plan` を使う。
 
 ## 9月の重点タスク
