@@ -10,3 +10,6 @@
 - YouTubeとnoteを副業で運営している
   - YouTube: https://www.youtube.com/@sun-viaje
   - note: https://note.com/sun012726
+
+## 部門プロジェクトファイル
+- 旅行プラン部（sun_travel）に関するやりとりでは [sun_travel/PROJECT.md](sun_travel/PROJECT.md) を参照すること（目標・現状・検討中の旅行プランをまとめている）

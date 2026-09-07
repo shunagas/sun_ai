@@ -86,3 +86,4 @@
 - [note部門（sun_note）](sun_note/PROJECT.md)
 - [企画部（sun_business）](sun_business/PROJECT.md) — note・YouTubeの先にある「事業化」（長期目標10年）を検討する部門。2026-09-03発足
 - [開発部（sun_develop）](sun_develop/PROJECT.md) — アプリ・ツール・サービスの開発を担当する部門。2026-09-03発足
+- [旅行プラン部（sun_travel）](sun_travel/PROJECT.md) — 実際の旅行（マイル・特典航空券ルート、宿泊先・ラウンジ選定、現地行程）をプランニングする部門。2026-09-07発足
