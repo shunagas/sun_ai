@@ -1,19 +1,14 @@
 {
-  "updatedAt": "2026-09-08T19:42:37",
-  "rangeStart": "2026-08-09",
-  "rangeEnd": "2026-09-07",
+  "updatedAt": "2026-09-09T07:05:42",
+  "rangeStart": "2026-08-10",
+  "rangeEnd": "2026-09-08",
   "videos": [
     {
       "videoId": "C2ydpzWnsEk",
       "title": "【宿泊記】東京にこんなホテルが！？立川のソラノホテルへ",
-      "totalViews": 830,
-      "totalMinutes": 2824,
+      "totalViews": 907,
+      "totalMinutes": 2897,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 11,
-          "minutes": 66
-        },
         {
           "date": "2026-08-10",
           "views": 9,
@@ -121,8 +116,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 43,
+          "minutes": 64
         },
         {
           "date": "2026-09-01",
@@ -151,11 +146,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 45,
+          "minutes": 75
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -164,14 +164,9 @@
     {
       "videoId": "3jbjk7AxBuE",
       "title": "【完全版】これ1本で船内の全てがわかる｜MSCワールドエウローパ船内ツアー",
-      "totalViews": 738,
-      "totalMinutes": 3682,
+      "totalViews": 796,
+      "totalMinutes": 3806,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 24,
-          "minutes": 210
-        },
         {
           "date": "2026-08-10",
           "views": 15,
@@ -279,8 +274,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 47,
+          "minutes": 135
         },
         {
           "date": "2026-09-01",
@@ -309,169 +304,16 @@
         },
         {
           "date": "2026-09-06",
-          "views": 0,
-          "minutes": 0
+          "views": 35,
+          "minutes": 199
         },
         {
           "date": "2026-09-07",
           "views": 0,
           "minutes": 0
-        }
-      ]
-    },
-    {
-      "videoId": "Iu14xt8DIao",
-      "title": "【ヴァレッタ完全攻略】マルタ騎士団が築いた世界遺産の要塞都市｜地中海クルーズ寄港地",
-      "totalViews": 281,
-      "totalMinutes": 1857,
-      "series": [
-        {
-          "date": "2026-08-09",
-          "views": 14,
-          "minutes": 126
         },
         {
-          "date": "2026-08-10",
-          "views": 10,
-          "minutes": 57
-        },
-        {
-          "date": "2026-08-11",
-          "views": 12,
-          "minutes": 109
-        },
-        {
-          "date": "2026-08-12",
-          "views": 14,
-          "minutes": 108
-        },
-        {
-          "date": "2026-08-13",
-          "views": 14,
-          "minutes": 75
-        },
-        {
-          "date": "2026-08-14",
-          "views": 13,
-          "minutes": 76
-        },
-        {
-          "date": "2026-08-15",
-          "views": 20,
-          "minutes": 162
-        },
-        {
-          "date": "2026-08-16",
-          "views": 20,
-          "minutes": 152
-        },
-        {
-          "date": "2026-08-17",
-          "views": 9,
-          "minutes": 30
-        },
-        {
-          "date": "2026-08-18",
-          "views": 16,
-          "minutes": 136
-        },
-        {
-          "date": "2026-08-19",
-          "views": 18,
-          "minutes": 127
-        },
-        {
-          "date": "2026-08-20",
-          "views": 11,
-          "minutes": 66
-        },
-        {
-          "date": "2026-08-21",
-          "views": 1,
-          "minutes": 0
-        },
-        {
-          "date": "2026-08-22",
-          "views": 2,
-          "minutes": 26
-        },
-        {
-          "date": "2026-08-23",
-          "views": 7,
-          "minutes": 71
-        },
-        {
-          "date": "2026-08-24",
-          "views": 7,
-          "minutes": 25
-        },
-        {
-          "date": "2026-08-25",
-          "views": 3,
-          "minutes": 26
-        },
-        {
-          "date": "2026-08-26",
-          "views": 5,
-          "minutes": 17
-        },
-        {
-          "date": "2026-08-27",
-          "views": 13,
-          "minutes": 38
-        },
-        {
-          "date": "2026-08-28",
-          "views": 7,
-          "minutes": 38
-        },
-        {
-          "date": "2026-08-29",
-          "views": 16,
-          "minutes": 170
-        },
-        {
-          "date": "2026-08-30",
-          "views": 8,
-          "minutes": 61
-        },
-        {
-          "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
-        },
-        {
-          "date": "2026-09-01",
-          "views": 6,
-          "minutes": 44
-        },
-        {
-          "date": "2026-09-02",
-          "views": 8,
-          "minutes": 15
-        },
-        {
-          "date": "2026-09-03",
-          "views": 7,
-          "minutes": 22
-        },
-        {
-          "date": "2026-09-04",
-          "views": 3,
-          "minutes": 16
-        },
-        {
-          "date": "2026-09-05",
-          "views": 17,
-          "minutes": 64
-        },
-        {
-          "date": "2026-09-06",
-          "views": 0,
-          "minutes": 0
-        },
-        {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -480,14 +322,9 @@
     {
       "videoId": "zJKPKrLwP9A",
       "title": "【バルセロナ旅行前必見】これ一本でサグラダファミリアの全てがわかります",
-      "totalViews": 277,
-      "totalMinutes": 1173,
+      "totalViews": 335,
+      "totalMinutes": 1327,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 0,
-          "minutes": 0
-        },
         {
           "date": "2026-08-10",
           "views": 0,
@@ -595,8 +432,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 11,
+          "minutes": 52
         },
         {
           "date": "2026-09-01",
@@ -625,11 +462,174 @@
         },
         {
           "date": "2026-09-06",
+          "views": 47,
+          "minutes": 102
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
+          "date": "2026-09-08",
+          "views": 0,
+          "minutes": 0
+        }
+      ]
+    },
+    {
+      "videoId": "Iu14xt8DIao",
+      "title": "【ヴァレッタ完全攻略】マルタ騎士団が築いた世界遺産の要塞都市｜地中海クルーズ寄港地",
+      "totalViews": 301,
+      "totalMinutes": 1883,
+      "series": [
+        {
+          "date": "2026-08-10",
+          "views": 10,
+          "minutes": 57
+        },
+        {
+          "date": "2026-08-11",
+          "views": 12,
+          "minutes": 109
+        },
+        {
+          "date": "2026-08-12",
+          "views": 14,
+          "minutes": 108
+        },
+        {
+          "date": "2026-08-13",
+          "views": 14,
+          "minutes": 75
+        },
+        {
+          "date": "2026-08-14",
+          "views": 13,
+          "minutes": 76
+        },
+        {
+          "date": "2026-08-15",
+          "views": 20,
+          "minutes": 162
+        },
+        {
+          "date": "2026-08-16",
+          "views": 20,
+          "minutes": 152
+        },
+        {
+          "date": "2026-08-17",
+          "views": 9,
+          "minutes": 30
+        },
+        {
+          "date": "2026-08-18",
+          "views": 16,
+          "minutes": 136
+        },
+        {
+          "date": "2026-08-19",
+          "views": 18,
+          "minutes": 127
+        },
+        {
+          "date": "2026-08-20",
+          "views": 11,
+          "minutes": 66
+        },
+        {
+          "date": "2026-08-21",
+          "views": 1,
+          "minutes": 0
+        },
+        {
+          "date": "2026-08-22",
+          "views": 2,
+          "minutes": 26
+        },
+        {
+          "date": "2026-08-23",
+          "views": 7,
+          "minutes": 71
+        },
+        {
+          "date": "2026-08-24",
+          "views": 7,
+          "minutes": 25
+        },
+        {
+          "date": "2026-08-25",
+          "views": 3,
+          "minutes": 26
+        },
+        {
+          "date": "2026-08-26",
+          "views": 5,
+          "minutes": 17
+        },
+        {
+          "date": "2026-08-27",
+          "views": 13,
+          "minutes": 38
+        },
+        {
+          "date": "2026-08-28",
+          "views": 7,
+          "minutes": 38
+        },
+        {
+          "date": "2026-08-29",
+          "views": 16,
+          "minutes": 170
+        },
+        {
+          "date": "2026-08-30",
+          "views": 8,
+          "minutes": 61
+        },
+        {
+          "date": "2026-08-31",
+          "views": 9,
+          "minutes": 72
+        },
+        {
+          "date": "2026-09-01",
+          "views": 6,
+          "minutes": 44
+        },
+        {
+          "date": "2026-09-02",
+          "views": 8,
+          "minutes": 15
+        },
+        {
+          "date": "2026-09-03",
+          "views": 7,
+          "minutes": 22
+        },
+        {
+          "date": "2026-09-04",
+          "views": 3,
+          "minutes": 16
+        },
+        {
+          "date": "2026-09-05",
+          "views": 17,
+          "minutes": 64
+        },
+        {
+          "date": "2026-09-06",
+          "views": 25,
+          "minutes": 80
+        },
+        {
           "date": "2026-09-07",
+          "views": 0,
+          "minutes": 0
+        },
+        {
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -638,14 +638,9 @@
     {
       "videoId": "AsfsM_PD73s",
       "title": "【乗船日】知らないと損する乗船日の過ごし方｜MSCワールドエウローパ地中海クルーズ",
-      "totalViews": 266,
-      "totalMinutes": 787,
+      "totalViews": 282,
+      "totalMinutes": 802,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 7,
-          "minutes": 24
-        },
         {
           "date": "2026-08-10",
           "views": 8,
@@ -753,8 +748,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 19,
+          "minutes": 29
         },
         {
           "date": "2026-09-01",
@@ -783,11 +778,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 4,
+          "minutes": 10
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -796,14 +796,9 @@
     {
       "videoId": "GNA1CvpZIlk",
       "title": "【マルセイユ完全攻略】港から自力で行くなら必見！交通手段の選び方と「絶対に外せない」絶景スポット｜地中海クルーズ寄港地",
-      "totalViews": 257,
-      "totalMinutes": 1530,
+      "totalViews": 281,
+      "totalMinutes": 1580,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 6,
-          "minutes": 40
-        },
         {
           "date": "2026-08-10",
           "views": 4,
@@ -911,8 +906,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 22,
+          "minutes": 88
         },
         {
           "date": "2026-09-01",
@@ -941,11 +936,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 8,
+          "minutes": 2
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -954,14 +954,9 @@
     {
       "videoId": "tHFpVdD5MhQ",
       "title": "【ジェノヴァ完全攻略】半日で大満足！徒歩で巡る世界遺産とカラフルな絶景ボッカダッセ｜地中海クルーズ寄港地",
-      "totalViews": 234,
-      "totalMinutes": 1401,
+      "totalViews": 249,
+      "totalMinutes": 1513,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 12,
-          "minutes": 33
-        },
         {
           "date": "2026-08-10",
           "views": 5,
@@ -1069,8 +1064,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 16,
+          "minutes": 106
         },
         {
           "date": "2026-09-01",
@@ -1099,11 +1094,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 11,
+          "minutes": 39
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -1112,14 +1112,9 @@
     {
       "videoId": "XRj1Anleq5k",
       "title": "【ナポリ完全攻略】カオスな街と絶景のギャップ｜「ナポリを見てから◯ね」と称される絶景＆本場ナポリピザ｜地中海クルーズ寄港地",
-      "totalViews": 220,
-      "totalMinutes": 1455,
+      "totalViews": 231,
+      "totalMinutes": 1444,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 8,
-          "minutes": 84
-        },
         {
           "date": "2026-08-10",
           "views": 13,
@@ -1227,8 +1222,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 1,
+          "minutes": 17
         },
         {
           "date": "2026-09-01",
@@ -1257,11 +1252,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 18,
+          "minutes": 56
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -1270,14 +1270,9 @@
     {
       "videoId": "FFhoQ_nEoOk",
       "title": "【下船日】バルセロナ下船後、1日でサグラダ・ファミリアを堪能する｜MSCワールドエウローパ",
-      "totalViews": 211,
-      "totalMinutes": 734,
+      "totalViews": 204,
+      "totalMinutes": 697,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 12,
-          "minutes": 69
-        },
         {
           "date": "2026-08-10",
           "views": 15,
@@ -1385,8 +1380,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 2,
+          "minutes": 26
         },
         {
           "date": "2026-09-01",
@@ -1415,11 +1410,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 3,
+          "minutes": 6
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
@@ -1428,14 +1428,9 @@
     {
       "videoId": "xdU6xSBKHU4",
       "title": "【メッシーナ完全攻略】電車で行く「シチリア島の真珠」タオルミーナ日帰り観光｜地中海クルーズ寄港地",
-      "totalViews": 198,
-      "totalMinutes": 1392,
+      "totalViews": 197,
+      "totalMinutes": 1364,
       "series": [
-        {
-          "date": "2026-08-09",
-          "views": 14,
-          "minutes": 96
-        },
         {
           "date": "2026-08-10",
           "views": 12,
@@ -1543,8 +1538,8 @@
         },
         {
           "date": "2026-08-31",
-          "views": 0,
-          "minutes": 0
+          "views": 3,
+          "minutes": 41
         },
         {
           "date": "2026-09-01",
@@ -1573,11 +1568,16 @@
         },
         {
           "date": "2026-09-06",
+          "views": 10,
+          "minutes": 27
+        },
+        {
+          "date": "2026-09-07",
           "views": 0,
           "minutes": 0
         },
         {
-          "date": "2026-09-07",
+          "date": "2026-09-08",
           "views": 0,
           "minutes": 0
         }
