@@ -13,3 +13,9 @@ sun_accounting/経理帳簿.xlsx
 *.mov
 /羽田センチュリオン/
 /香港ラウンジホップ/
+
+# API認証情報（OAuthクライアントシークレット・リフレッシュトークン等）。絶対にコミットしない
+.secrets/
+**/.secrets/
+*client_secret*.json
+*_token.json
