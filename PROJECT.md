@@ -87,3 +87,4 @@
 - [企画部（sun_business）](sun_business/PROJECT.md) — note・YouTubeの先にある「事業化」（長期目標10年）を検討する部門。2026-09-03発足
 - [開発部（sun_develop）](sun_develop/PROJECT.md) — アプリ・ツール・サービスの開発を担当する部門。2026-09-03発足
 - [旅行プラン部（sun_travel）](sun_travel/PROJECT.md) — 実際の旅行（マイル・特典航空券ルート、宿泊先・ラウンジ選定、現地行程）をプランニングする部門。2026-09-07発足
+- [経理部（sun_accounting）](sun_accounting/PROJECT.md) — 事業化に向けた複式簿記での記帳・青色申告の税務スケジュールを担当する部門。2026-09-08発足

@@ -1,6 +1,9 @@
 # ローカル限定のMCP設定（Playwright等）
 .mcp.json
 
+# 経理帳簿（実データを含むため、テンプレートを生成するスクリプトのみコミットし本体はコミットしない）
+sun_accounting/経理帳簿.xlsx
+
 # 作業中のスクリーンショット・Playwright一時ファイル（22時の夜間クリーンアップで削除）
 /*.png
 .playwright-mcp/

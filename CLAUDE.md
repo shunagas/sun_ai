@@ -15,7 +15,8 @@
 - 予算感: マイル・割引を積極的に活用し、支出は抑え目にする方針（浪費はしないが、価値があると判断した体験には投資する）
 - 価値観・こだわり: ラグジュアリー・高級ホテル志向。予約前の事前リサーチを徹底し後悔しない選択をしたい派。実体験・一次情報を重視する
 
-**各部門（sun_business/sun_travel/sun_note/sun_youtube/sun_develop等）が企画会議・検討を行う際は、上記の本人の背景・現状を踏まえて提案すること。**
+**各部門（sun_business/sun_travel/sun_note/sun_youtube/sun_develop/sun_accounting等）が企画会議・検討を行う際は、上記の本人の背景・現状を踏まえて提案すること。**
 
 ## 部門プロジェクトファイル
 - 旅行プラン部（sun_travel）に関するやりとりでは [sun_travel/PROJECT.md](sun_travel/PROJECT.md) を参照すること（目標・現状・検討中の旅行プランをまとめている）
+- 経理部（sun_accounting）に関するやりとりでは [sun_accounting/PROJECT.md](sun_accounting/PROJECT.md) を参照すること（複式簿記・青色申告に向けた税務スケジュールをまとめている）
