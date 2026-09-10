@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  fetch_youtube_channel_daily.py を毎日自動実行するための launchd 設定テンプレート。
+  使い方は sun_develop/scripts/README_channel_daily.md を参照。
+  このファイルはテンプレートであり、実際に有効化するには
+  ~/Library/LaunchAgents/ にコピーして launchctl load する必要があります（自動では設定されません）。
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.sunai.youtube-channel-daily</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <!-- 各自の `which python3` の結果に置き換えてください -->
+    <string>/opt/anaconda3/bin/python3</string>
+    <string>/Users/shunagas/sun_ai/sun_develop/scripts/fetch_youtube_channel_daily.py</string>
+  </array>
+
+  <!-- 毎日 朝7時30分（JST）に実行。KPI日次更新ルーティン(朝7時)の後に取得値が揃うタイミング -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>7</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/shunagas/sun_ai</string>
+
+  <!-- git commit/pushまで自動でやりたい場合だけ残す。手動でpushしたい場合はこのEnvironmentVariablesブロックごと削除 -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>AUTO_GIT_PUSH</key>
+    <string>1</string>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/Users/shunagas/sun_ai/sun_develop/scripts/logs/youtube_channel_daily.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/shunagas/sun_ai/sun_develop/scripts/logs/youtube_channel_daily.err.log</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

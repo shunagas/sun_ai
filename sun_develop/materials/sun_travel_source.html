@@ -157,6 +157,23 @@
   .kpi-delta.warn{background:var(--warn-soft); color:var(--warn);}
   .kpi-delta.crit{background:var(--crit-soft); color:var(--crit);}
 
+  /* ---------- youtube tab: channel summary ---------- */
+  .yt-summary-panel .panel-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
+  .yt-summary-panel .panel-head h2{margin:0;}
+  .yt-stat-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-top:12px;}
+  @media (max-width:960px){ .yt-stat-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:560px){ .yt-stat-grid{grid-template-columns:repeat(2,1fr);} }
+  .yt-stat{
+    background:var(--paper); border:1px solid var(--line); border-radius:12px;
+    padding:12px 12px 10px; display:flex; flex-direction:column; gap:4px;
+  }
+  .yt-stat .yt-stat-num{
+    font-family:'Manrope'; font-variant-numeric:tabular-nums; font-weight:800; font-size:19px; line-height:1.2;
+    color:var(--yt-accent);
+  }
+  .yt-stat .yt-stat-num small{font-size:11px; font-weight:600; color:var(--text-dim); margin-left:3px;}
+  .yt-stat .yt-stat-label{font-size:11px; color:var(--text-dim); line-height:1.3;}
+
   /* ---------- dept chips ---------- */
   .dept-chip{
     display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
@@ -443,6 +460,14 @@
   </section>
 
   <section id="tabpanel-youtube" data-tab-panel="youtube" role="tabpanel" hidden>
+    <div class="panel yt-summary-panel" id="panel-youtube-summary">
+      <div class="panel-head">
+        <h2>チャンネル概況（累計）</h2>
+        <span class="chart-updated" id="youtube-summary-updated"></span>
+      </div>
+      <div class="sub">現時点のチャンネル全体の状態です。年末目標への進捗は「トップ」タブのKPIカードもあわせてご覧ください。</div>
+      <div class="yt-stat-grid" id="youtubeStatGrid"></div>
+    </div>
     <div class="panel chart-panel" id="panel-video-chart">
       <div class="panel-head">
         <h2>動画別 再生推移（直近30日・上位10本）</h2>
@@ -598,9 +623,43 @@
     return '<span class="kpi-delta '+cls+'" title="'+escapeHtml(label)+'（1つ前の期間との比較）">'+escapeHtml(label)+' '+valueText+'</span>';
   }
 
+  // ---------- youtube tab: channel summary ----------
+  function renderYoutubeSummary(){
+    var grid = document.getElementById('youtubeStatGrid');
+    if(!grid) return;
+    var updatedEl = document.getElementById('youtube-summary-updated');
+    var yt = state.kpiYoutube;
+    if(!yt){
+      grid.innerHTML = '<div class="empty" style="grid-column:1/-1;">KPI読み込み中…</div>';
+      if(updatedEl) updatedEl.textContent = '';
+      return;
+    }
+    var c = yt.cumulative;
+    if(updatedEl){
+      var formatted = yt.updatedAt ? formatJst(yt.updatedAt) : null;
+      updatedEl.textContent = formatted ? '更新: '+formatted : '';
+    }
+    var stats = [
+      {label:'総再生時間（累計）', num:c.watchHours.toFixed(1), suffix:'h / '+yt.watchHoursTarget+'h目標'},
+      {label:'視聴回数（累計）', num:c.views.toLocaleString(), suffix:'回'},
+      {label:'インプレッション数（累計）', num:c.impressions.toLocaleString(), suffix:'回'},
+      {label:'クリック率（CTR）', num:c.ctr.toFixed(1), suffix:'%'},
+      {label:'平均視聴時間', num:c.avgWatch, suffix:'分:秒'},
+      {label:'チャンネル登録者数', num:c.subs, suffix:'人 / '+yt.subscriberTarget+'人目標'},
+    ];
+    grid.innerHTML = '';
+    stats.forEach(function(s){
+      var tile = el('div','yt-stat');
+      tile.appendChild(el('div','yt-stat-num', s.num+(s.suffix?'<small>'+escapeHtml(s.suffix)+'</small>':'')));
+      tile.appendChild(el('div','yt-stat-label', s.label));
+      grid.appendChild(tile);
+    });
+  }
+
   function renderKpi(){
     var row = document.getElementById('kpiRow');
     row.innerHTML = '';
+    renderYoutubeSummary();
     var note = state.kpiNote, yt = state.kpiYoutube;
     if(!note || !yt){
       row.innerHTML = '<div class="empty" style="grid-column:1/-1;">KPI読み込み中…</div>';
@@ -635,6 +694,10 @@
         pct: Math.min(100, yt.cumulative.watchHours/yt.watchHoursTarget*100), spark: ym.map(function(m){return m.watchHours;}),
         delta: deltaPill(yLast.watchHours, yPrev.watchHours, true), color:'var(--yt-accent)',
         note:'2026年累計'+yt.cumulative.watchHours.toFixed(1)+'時間（登録率 '+yLast.subRate.toFixed(2)+'%・CTR '+yLast.ctr.toFixed(1)+'%）'},
+      {dept:'youtube', label:'YouTube 視聴回数（当月目標）', num:yLast.views.toLocaleString(), suffix:'/ '+yt.target.views.toLocaleString()+'回',
+        pct: Math.min(100, yLast.views/yt.target.views*100), spark: ym.map(function(m){return m.views;}),
+        delta: deltaPill(yLast.views, yPrev.views, true), color:'var(--yt-accent)',
+        note:yLast.month+'月実績に対する進捗（年間の目標値は未設定）。2026年累計視聴回数 '+yt.cumulative.views.toLocaleString()+'回'},
     ];
     cards.forEach(function(c){
       var card = el('div','kpi-card');
