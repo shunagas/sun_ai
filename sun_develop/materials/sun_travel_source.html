@@ -174,6 +174,42 @@
   .yt-stat .yt-stat-num small{font-size:11px; font-weight:600; color:var(--text-dim); margin-left:3px;}
   .yt-stat .yt-stat-label{font-size:11px; color:var(--text-dim); line-height:1.3;}
 
+  /* ---------- youtube tab: bangkok reward ---------- */
+  .yt-reward-panel .panel-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
+  .yt-reward-panel .panel-head h2{margin:0;}
+  .yt-reward-panel .sub b{color:var(--text); font-weight:700;}
+  .reward-metrics{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:14px 0 20px;}
+  @media (max-width:720px){ .reward-metrics{grid-template-columns:1fr;} }
+  .reward-metric-head{display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:5px;}
+  .reward-metric-label{font-size:12px; color:var(--text-dim); font-weight:600;}
+  .reward-metric-val{font-family:'Manrope'; font-variant-numeric:tabular-nums; font-weight:800; font-size:18px; color:var(--yt-accent);}
+  .reward-metric-val small{font-size:11px; font-weight:600; color:var(--text-dim); margin-left:2px;}
+  .reward-bar-wrap{position:relative; margin-top:2px;}
+  .reward-bar-wrap .kpi-bar > i{background:var(--yt-accent);}
+  .reward-tick{position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--text-dim); opacity:.5; border-radius:1px;}
+  .reward-tick-a{opacity:.9; background:var(--brass);}
+  .reward-metric-targets{display:flex; justify-content:space-between; font-size:10.5px; color:var(--text-dim); margin-top:5px;}
+  .reward-tiers{display:flex; flex-direction:column; gap:8px;}
+  .reward-tier{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    border:1px solid var(--line); border-radius:12px; padding:11px 14px;
+    background:var(--paper);
+  }
+  .reward-tier.current{border-color:var(--yt-accent); background:var(--yt-accent-soft); box-shadow:var(--shadow);}
+  .reward-tier.cleared{opacity:.5;}
+  .reward-tier-main{min-width:190px;}
+  .reward-tier-hotel{font-weight:700; font-size:14px;}
+  .reward-tier.current .reward-tier-hotel{color:var(--yt-accent);}
+  .reward-tier-extra{font-size:12px; color:var(--text-dim); margin-top:1px;}
+  .reward-tier-cond{flex:1; min-width:220px; font-size:11.5px; color:var(--text-dim); display:flex; flex-wrap:wrap; align-items:center; gap:5px;}
+  .reward-check{font-size:11px; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap;}
+  .reward-check.ok{background:var(--good-soft); color:var(--good);}
+  .reward-check.no{background:var(--surface-2); color:var(--text-dim);}
+  .reward-joiner{font-size:10.5px; color:var(--text-dim);}
+  .reward-tier-status{font-size:11px; font-weight:800; padding:3px 11px; border-radius:999px; white-space:nowrap; flex:none;}
+  .reward-tier-status.current{background:var(--yt-accent); color:#fff;}
+  .reward-tier-status.locked,.reward-tier-status.cleared{background:var(--surface-2); color:var(--text-dim);}
+
   /* ---------- dept chips ---------- */
   .dept-chip{
     display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
@@ -468,6 +504,15 @@
       <div class="sub">現時点のチャンネル全体の状態です。年末目標への進捗は「トップ」タブのKPIカードもあわせてご覧ください。</div>
       <div class="yt-stat-grid" id="youtubeStatGrid"></div>
     </div>
+    <div class="panel yt-reward-panel" id="panel-youtube-reward">
+      <div class="panel-head">
+        <h2>2027年7月 バンコク旅行リワード</h2>
+        <span class="chart-updated" id="youtube-reward-updated"></span>
+      </div>
+      <div class="sub">2026年末（12/31）時点の登録者数・視聴時間の実績で、2027年7月のバンコク旅行のホテルグレードが決まります。<b>登録者・視聴時間の両方がB目標以上でなければ、最低ラインの報酬のままです。</b></div>
+      <div class="reward-metrics" id="youtubeRewardMetrics"></div>
+      <div class="reward-tiers" id="youtubeRewardTiers"></div>
+    </div>
     <div class="panel chart-panel" id="panel-video-chart">
       <div class="panel-head">
         <h2>動画別 再生推移（直近30日・上位10本）</h2>
@@ -542,7 +587,7 @@
   var state = {
     tab:'top',
     qNote:'', qYoutube:'',
-    ideas:[], tasks:[], kpiNote:null, kpiYoutube:null, meeting:null,
+    ideas:[], tasks:[], kpiNote:null, kpiYoutube:null, rewardYoutube:null, meeting:null,
     youtubeStrategyMeeting:null,
     videoDaily:null, videoColorMap:null, videoSelectedIds:null,
     videoMetric:'views', videoIsolatedId:null,
@@ -656,10 +701,91 @@
     });
   }
 
+  // ---------- youtube tab: bangkok trip reward ----------
+  function renderYoutubeReward(){
+    var metricsEl = document.getElementById('youtubeRewardMetrics');
+    var tiersEl = document.getElementById('youtubeRewardTiers');
+    if(!metricsEl || !tiersEl) return;
+    var updatedEl = document.getElementById('youtube-reward-updated');
+    var yt = state.kpiYoutube, rw = state.rewardYoutube;
+    if(!yt || !rw){
+      metricsEl.innerHTML = '<div class="empty" style="grid-column:1/-1;">読み込み中…</div>';
+      tiersEl.innerHTML = '';
+      if(updatedEl) updatedEl.textContent = '';
+      return;
+    }
+    if(updatedEl){
+      var formatted = yt.updatedAt ? formatJst(yt.updatedAt) : null;
+      updatedEl.textContent = formatted ? '実績更新: '+formatted : '';
+    }
+    var subs = yt.cumulative.subs, hours = yt.cumulative.watchHours;
+    var aSubs = rw.aTarget.subs, aHours = rw.aTarget.watchHours;
+    var bSubs = rw.bTarget.subs, bHours = rw.bTarget.watchHours;
+    var checks = {
+      subsA: subs >= aSubs, hoursA: hours >= aHours,
+      subsB: subs >= bSubs, hoursB: hours >= bHours
+    };
+    var tierIndex;
+    if(checks.subsA && checks.hoursA) tierIndex = 0;
+    else if(checks.subsA || checks.hoursA) tierIndex = 1;
+    else if(checks.subsB && checks.hoursB) tierIndex = 2;
+    else tierIndex = 3;
+
+    function metricBar(label, valHtml, value, aTarget, bTarget, unit){
+      var pct = Math.min(100, value/aTarget*100);
+      var bPct = Math.min(100, bTarget/aTarget*100);
+      return '<div class="reward-metric">'
+        + '<div class="reward-metric-head"><span class="reward-metric-label">'+escapeHtml(label)+'</span>'
+        + '<span class="reward-metric-val">'+valHtml+'</span></div>'
+        + '<div class="reward-bar-wrap"><div class="kpi-bar"><i style="width:'+pct.toFixed(1)+'%"></i></div>'
+        + '<i class="reward-tick" style="left:'+bPct.toFixed(1)+'%" title="B目標 '+bTarget+unit+'"></i>'
+        + '<i class="reward-tick reward-tick-a" style="left:100%" title="A目標 '+aTarget+unit+'"></i>'
+        + '</div>'
+        + '<div class="reward-metric-targets"><span>B目標 '+bTarget+unit+'</span><span>A目標 '+aTarget+unit+'</span></div>'
+        + '</div>';
+    }
+
+    metricsEl.innerHTML =
+      metricBar('チャンネル登録者数', subs.toLocaleString()+'<small>人</small>', subs, aSubs, bSubs, '人') +
+      metricBar('視聴時間', hours.toFixed(1)+'<small>h</small>', hours, aHours, bHours, 'h');
+
+    var LABELS = {
+      subsA:'登録者 A('+aSubs+'人)', hoursA:'視聴時間 A('+aHours+'h)',
+      subsB:'登録者 B('+bSubs+'人)', hoursB:'視聴時間 B('+bHours+'h)'
+    };
+    var tiers = [
+      {hotel:'マンダリンオリエンタル', extra:'＋ オリエンタルスパ ¥20,000分', need:['subsA','hoursA'], op:'and'},
+      {hotel:'マンダリンオリエンタル', extra:'¥100,000', need:['subsA','hoursA'], op:'or'},
+      {hotel:'ペニンシュラ', extra:'¥70,000', need:['subsB','hoursB'], op:'and'},
+      {hotel:'コンラッド or シャングリラ', extra:'¥30,000', need:[], op:'base'}
+    ];
+
+    tiersEl.innerHTML = tiers.map(function(t, i){
+      var statusCls = i===tierIndex ? 'current' : (i<tierIndex ? 'locked' : 'cleared');
+      var statusText = i===tierIndex ? '現在のライン' : (i<tierIndex ? 'あと一歩' : 'クリア済み');
+      var condHtml;
+      if(t.op==='base'){
+        condHtml = '<span class="reward-joiner">上記いずれも未達の場合の最低ライン</span>';
+      } else {
+        var joiner = t.op==='and' ? 'かつ' : 'または';
+        condHtml = t.need.map(function(k){
+          return '<span class="reward-check '+(checks[k]?'ok':'no')+'">'+(checks[k]?'✓':'✕')+' '+LABELS[k]+'</span>';
+        }).join('<span class="reward-joiner">'+joiner+'</span>');
+      }
+      return '<div class="reward-tier '+statusCls+'">'
+        + '<div class="reward-tier-main"><div class="reward-tier-hotel">'+escapeHtml(t.hotel)+'</div>'
+        + '<div class="reward-tier-extra">'+escapeHtml(t.extra)+'</div></div>'
+        + '<div class="reward-tier-cond">'+condHtml+'</div>'
+        + '<span class="reward-tier-status '+statusCls+'">'+statusText+'</span>'
+        + '</div>';
+    }).join('');
+  }
+
   function renderKpi(){
     var row = document.getElementById('kpiRow');
     row.innerHTML = '';
     renderYoutubeSummary();
+    renderYoutubeReward();
     var note = state.kpiNote, yt = state.kpiYoutube;
     if(!note || !yt){
       row.innerHTML = '<div class="empty" style="grid-column:1/-1;">KPI読み込み中…</div>';
@@ -1376,6 +1502,10 @@
       state.kpiYoutube = snap.exists ? snap.data() : null;
       renderKpi();
       updateSnapshotBadge();
+    }, function(){});
+    db.doc('rewards/youtube_bangkok').onSnapshot(function(snap){
+      state.rewardYoutube = snap.exists ? snap.data() : null;
+      renderKpi();
     }, function(){});
     db.doc('meeting/latest').onSnapshot(function(snap){
       state.meeting = snap.exists ? snap.data() : null;
