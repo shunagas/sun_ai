@@ -1,0 +1,45 @@
+id,hotel_name,city,country,forbes_rating,forbes_status,forbes_year,michelin_keys,michelin_status,michelin_year,source_url,notes
+1,"The Ritz-Carlton, Nikko",栃木,日本,Five-Star,rated,2026(inaugural),Two Keys,rated,2024,forbestravelguide.com/hotels/nikko-japan/the-ritz-carlton-nikko; latteluxurynews.com,2025年版での据え置き/昇格は未確認
+2,"The Ritz-Carlton, Okinawa",沖縄,日本,Four-Star,rated,-,One Key,rated,2025(addition),forbestravelguide.com/hotels/okinawa-japan/the-ritz-carlton-okinawa,2025年版で追加確認
+3,"The Ritz-Carlton, Kyoto",京都,日本,Five-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/kyoto-japan; latteluxurynews.com,
+4,"The Ritz-Carlton, Osaka",大阪,日本,Five-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/osaka-japan; latteluxurynews.com,
+5,"The Ritz-Carlton, Fukuoka",福岡,日本,Four-Star,rated,-,One Key,rated,2025(addition),forbestravelguide.com/hotels/fukuoka-japan/the-ritz-carlton-fukuoka; powderlife.com,
+6,"The Ritz-Carlton, Tokyo",東京,日本,Five-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/tokyo-japan; latteluxurynews.com,
+7,Waldorf Astoria Osaka,大阪,日本,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/osaka-japan,
+8,Four Seasons Hotel Osaka,大阪,日本,Four-Star,rated,-,One Key,rated,2025(addition),forbestravelguide.com/destinations/osaka-japan; timeout.com,
+9,Osaka Marriott Miyako Hotel,大阪,日本,unrated,soon_to_be_rated,-,unrated,unrated,-,forbestravelguide.com/destinations/osaka-japan,Forbes「Soon to be Rated」表記
+10,InterContinental Osaka,大阪,日本,Recommended,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/osaka-japan; latteluxurynews.com,
+11,W Osaka,大阪,日本,Recommended,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/osaka-japan; latteluxurynews.com,
+12,The St. Regis Osaka,大阪,日本,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/osaka-japan,
+13,"The Imperial Hotel, Osaka",大阪,日本,Four-Star,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/osaka-japan,
+14,Hotel New Otani Osaka,大阪,日本,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/osaka-japan,
+15,Hotel Hankyu International,大阪,日本,unrated,unrated,-,unrated,unrated,-,forbestravelguide.com/destinations/osaka-japan(非掲載),掲載自体なし
+16,Four Seasons Hotel Kyoto,京都,日本,Four-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/kyoto-japan; latteluxurynews.com,
+17,Four Seasons Hotel Tokyo at Otemachi,東京,日本,Four-Star,rated,-,Three Keys,rated,2024/2025,forbestravelguide.com/destinations/tokyo-japan; travelvoice.jp,
+18,The Kahala Hotel & Resort Yokohama,神奈川,日本,unrated,soon_to_be_rated,-,One Key,rated,2025,forbestravelguide.com/hotels/yokohama-japan; guide.michelin.com,Forbes「Soon to be Rated」表記
+19,The Ritz-Carlton Langkawi,ランカウイ島,マレーシア,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/langkawi-malaysia,
+20,The Westin Langkawi Resort & Spa,ランカウイ島,マレーシア,unrated,unrated,-,unrated,unrated,-,forbestravelguide.com/destinations/langkawi-malaysia(非掲載),掲載自体なし
+21,"Mandarin Oriental, Tokyo",東京,日本,Five-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/tokyo-japan; latteluxurynews.com,
+22,"mesm Tokyo, Autograph Collection",東京,日本,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/tokyo-japan,
+23,"The Tokyo EDITION, Toranomon",東京,日本,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/tokyo-japan,
+24,Fufu Kyoto,京都,日本,unrated,unrated,-,One Key,rated,2024,latteluxurynews.com(Kyoto Key list),Forbes側は非掲載
+25,"Vinpearl Landmark 81, Autograph Collection",ホーチミン,ベトナム,unrated,unrated,-,unrated,unrated,-,確認できず,
+26,Le Méridien Saigon,ホーチミン,ベトナム,unrated,unrated,-,unrated,unrated,-,確認できず,
+27,Miyakojima Kurima Resort Seawood Hotel,沖縄,日本,unrated,unrated,-,unrated,unrated,-,確認できず,近隣のRosewood Miyakojima(Two Keys)とは別施設
+28,The Westin Yokohama,神奈川,日本,unrated,unrated,-,unrated,unrated,-,確認できず,
+29,JW Marriott Marquis Hotel Dubai,ドバイ,UAE,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/hotels/dubai-united-arab-emirates,
+30,The Prince Gallery Tokyo Kioicho,東京,日本,Five-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/tokyo-japan; latteluxurynews.com,
+31,JW Marriott Nara,奈良,日本,unrated,unrated,-,One Key,rated,2025(addition),WebSearch確認(JW Marriott Hotel Nara),Forbes側は非掲載
+32,Shangri-La Tokyo,東京,日本,Four-Star,rated,-,One Key,rated,2024,forbestravelguide.com/destinations/tokyo-japan; latteluxurynews.com,
+33,HOTEL THE MITSUI KYOTO,京都,日本,Five-Star,rated,-,Three Keys,rated,2024/2025,forbestravelguide.com/destinations/kyoto-japan; travelvoice.jp,
+34,The Westin Miyako Kyoto,京都,日本,Recommended,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/kyoto-japan,
+35,Hyatt Centric Kanazawa,石川,日本,unrated,unrated,-,unrated,unrated,-,確認できず,
+36,Hyatt House Kanazawa,石川,日本,unrated,unrated,-,unrated,unrated,-,確認できず,
+37,Kai Kaga,石川,日本,unrated,unrated,-,unrated,unrated,-,確認できず,近隣のBeniya Mukayu/Araya Totoanは別施設で取得済み
+38,Park Hyatt Niseko Hanazono,北海道,日本,Recommended,rated,-,One Key,rated,2024,forbestravelguide.com/hotels/hokkaido-japan; latteluxurynews.com,
+39,Hilton Niseko Village,北海道,日本,unrated,unrated,-,unrated,unrated,-,powderlife.com(他ニセコ施設は取得も本施設は対象外),
+40,Okunoin Hotel Tokugawa,栃木,日本,unrated,unrated,-,unrated,unrated,-,確認できず,
+41,"Mandarin Oriental Ritz, Madrid",マドリード,スペイン,Five-Star,rated,-,Three Keys,rated,2024,forbestravelguide.com/hotels/madrid-spain; connectingtravel.com,
+42,SORANO HOTEL,東京,日本,unrated,unrated,-,unrated,unrated,-,確認できず,
+43,The Prince Park Tower Tokyo,東京,日本,Four-Star,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/tokyo-japan,
+44,The Prince Sakura Tower Tokyo,東京,日本,Four-Star,rated,-,unrated,unrated,-,forbestravelguide.com/destinations/tokyo-japan,
