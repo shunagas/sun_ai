@@ -1,5 +1,10 @@
-"""チャンネル全体の累計サマリー（視聴回数・総再生時間・平均視聴時間・インプレッション・CTR・登録者数）を
-日次スナップショットとして取得し、日付をキーにした履歴配列でJSONに追記していくスクリプト。
+"""チャンネル全体の累計サマリー（視聴回数・長尺のみの累計視聴回数・総再生時間・平均視聴時間・
+インプレッション・CTR・登録者数）を日次スナップショットとして取得し、日付をキーにした履歴配列で
+JSONに追記していくスクリプト。
+
+`views`はチャンネル全体（ショート・ライブ配信等を含む）の累計、`longViews`はcreatorContentType
+ディメンションで`VIDEO_ON_DEMAND`（＝通常の長尺動画）に絞り込んだ累計。ダッシュボード「YouTube」
+タブの視聴回数表示は`longViews`を使う（本人依頼：2026-09-28、詳細はdev-backlog.md参照）。
 
 fetch_youtube_video_daily.py と同じ認証（.secrets/のOAuthトークン・APIキー）を使い回す。
 想定運用：本人のMacで毎日1回実行し、生成された materials/youtube_channel_daily.json を
@@ -67,6 +72,24 @@ try:
 except Exception as e:
     print(f"警告: impressions/CTRの取得に失敗しました（{e}）。0扱いで続行します。")
 
+# 2b) 長尺（ロングフォーム）動画のみの累計視聴回数
+# creatorContentTypeディメンションで絞り込み、VIDEO_ON_DEMAND（＝ショート・ライブ配信・投稿を除く通常動画）
+# のみを対象にした累計views。ダッシュボード「YouTube」タブの視聴回数表示はショートを含まない
+# この値を使う（本人依頼：2026-09-28）。失敗時は前回記録値を引き継ぎ、履歴もなければ0扱い。
+long_views = None
+try:
+    long_form = youtube_analytics.reports().query(
+        ids="channel==MINE",
+        startDate=LIFETIME_START,
+        endDate=target_date,
+        metrics="views",
+        filters="creatorContentType==VIDEO_ON_DEMAND",
+    ).execute()
+    lrow = (long_form.get("rows") or [[0]])[0]
+    long_views = lrow[0]
+except Exception as e:
+    print(f"警告: 長尺のみの視聴回数（creatorContentTypeフィルタ）の取得に失敗しました（{e}）。")
+
 # 3) 登録者数（Data API、チャンネルが登録者数を非公開にしていなければAPIキーのみで取得可）
 subs = None
 try:
@@ -90,11 +113,21 @@ if subs is None:
         subs = 0
         print("登録者数を取得できず、過去の履歴もないため暫定的に0を記録します。")
 
+if long_views is None:
+    prev_long_views = history[-1].get("longViews") if history else None
+    if prev_long_views is not None:
+        long_views = prev_long_views
+        print(f"長尺のみの視聴回数を取得できなかったため、前回記録値を引き継ぎます: {long_views}回")
+    else:
+        long_views = 0
+        print("長尺のみの視聴回数を取得できず、過去の履歴もないため暫定的に0を記録します。")
+
 sub_rate = (subs / views * 100) if views else 0.0
 
 entry = {
     "date": target_date,
     "views": views,
+    "longViews": long_views,
     "watchHours": round(minutes_watched / 60, 1),
     "impressions": impressions,
     "ctr": round(ctr, 1),
@@ -118,7 +151,7 @@ with open(OUT_FILE, "w") as f:
 
 print(f"書き出しました: {OUT_FILE}")
 print(
-    f"{entry['date']} 時点の累計: 視聴回数{views:,}回 / "
+    f"{entry['date']} 時点の累計: 視聴回数{views:,}回（うち長尺のみ{long_views:,}回） / "
     f"総再生時間{entry['watchHours']}h / 登録者{subs}人 / "
     f"インプレッション{impressions:,}回 / CTR{entry['ctr']}% / 平均視聴時間{entry['avgWatch']}"
 )

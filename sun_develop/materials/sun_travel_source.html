@@ -219,6 +219,44 @@
   .dept-chip.youtube{background:var(--yt-accent-soft); color:var(--yt-accent);}
   .dept-chip::before{content:''; width:6px; height:6px; border-radius:50%; background:currentColor;}
 
+  /* ---------- roadmap tab ---------- */
+  .roadmap-hero{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .roadmap-hero .roadmap-mission{flex:1; min-width:260px; font-size:13px; color:var(--text-dim); line-height:1.7; margin-top:2px;}
+  .roadmap-hero .action-btn{width:auto; min-width:230px;}
+  .roadmap-updated{font-size:11px; color:var(--text-dim); margin-top:12px;}
+
+  .milestone-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px;}
+  @media (max-width:960px){ .milestone-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .milestone-grid{grid-template-columns:1fr;} }
+  .milestone-card{
+    border:1px solid var(--line); border-radius:12px; padding:14px 14px 12px; background:var(--paper);
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .milestone-card.current{border-color:var(--brass); background:var(--surface); box-shadow:var(--shadow);}
+  .milestone-head{display:flex; align-items:baseline; justify-content:space-between; gap:8px;}
+  .milestone-title{font-weight:700; font-size:13.5px;}
+  .milestone-when{font-size:11px; color:var(--text-dim); font-weight:600; white-space:nowrap;}
+  .milestone-status{align-self:flex-start; font-size:10.5px; font-weight:800; padding:2px 9px; border-radius:999px;}
+  .milestone-status.current{background:var(--warn-soft); color:var(--warn);}
+  .milestone-status.upcoming{background:var(--surface-2); color:var(--text-dim);}
+  .milestone-status.longterm{background:var(--note-accent-soft); color:var(--note-accent);}
+  .milestone-desc{font-size:12px; color:var(--text-dim); line-height:1.6;}
+  .milestone-progress{margin-top:auto; padding-top:6px;}
+  .milestone-progress .kpi-pct{margin-top:4px; margin-bottom:8px;}
+
+  .roadmap-table-wrap{overflow-x:auto; margin-top:14px;}
+  .roadmap-table{width:100%; border-collapse:collapse; font-size:12px;}
+  .roadmap-table th, .roadmap-table td{padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; line-height:1.6;}
+  .roadmap-table th{font-size:11px; color:var(--text-dim); font-weight:700; white-space:nowrap;}
+  .roadmap-table td:first-child{font-weight:700; white-space:nowrap;}
+
+  .independence-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px;}
+  @media (max-width:640px){ .independence-grid{grid-template-columns:1fr;} }
+  .independence-card{border:1px solid var(--line); border-radius:12px; padding:16px; background:var(--paper);}
+  .independence-card .label{font-size:12px; color:var(--text-dim); font-weight:700;}
+  .independence-card .amount{font-family:'Manrope'; font-weight:800; font-size:22px; margin:4px 0 6px; color:var(--brass-ink);}
+  .independence-card .basis{font-size:11.5px; color:var(--text-dim); line-height:1.6;}
+
   /* ---------- layout ---------- */
   .layout{display:grid; grid-template-columns:1fr 320px; gap:20px; align-items:start;}
   @media (max-width:900px){ .layout{grid-template-columns:1fr;} }
@@ -419,6 +457,7 @@
         <button type="button" data-tab="top" role="tab" aria-selected="true" class="active">トップ</button>
         <button type="button" data-tab="note" role="tab" aria-selected="false">note</button>
         <button type="button" data-tab="youtube" role="tab" aria-selected="false">YouTube</button>
+        <button type="button" data-tab="roadmap" role="tab" aria-selected="false">ロードマップ</button>
       </div>
     </div>
   </div>
@@ -576,6 +615,42 @@
     </div>
   </section>
 
+  <section id="tabpanel-roadmap" data-tab-panel="roadmap" role="tabpanel" hidden>
+    <div class="panel roadmap-hero-panel">
+      <div class="roadmap-hero">
+        <div>
+          <h2 style="font-size:19px; margin-bottom:6px;">すん旅事業×キャリア ロードマップ 2026-2029</h2>
+          <div class="roadmap-mission" id="roadmapMission">読み込み中…</div>
+        </div>
+        <a class="action-btn" id="roadmapDocLink" href="https://claude.ai/artifact/3PAXBa7UjvJHDqFRMhAnMx" target="_blank" rel="noopener">
+          <span class="lbl">フルドキュメントを開く<small>年表・KPI詳細・シナリオ比較・ギリシャ計画など全文</small></span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="roadmap-updated" id="roadmapUpdated"></div>
+    </div>
+
+    <div class="panel roadmap-milestones-panel">
+      <h2 style="font-size:16px;">マイルストーン</h2>
+      <div class="sub">今、何がどこまで進んでいるか。登録者・視聴時間は上の「トップ」タブと同じ最新データです。</div>
+      <div class="milestone-grid" id="milestoneGrid"></div>
+    </div>
+
+    <div class="panel roadmap-timeline-panel">
+      <h2 style="font-size:16px;">3年ロードマップ年表</h2>
+      <div class="sub">YouTube・本業・資格学習・大きなイベントの推移。時期によって優先順位を入れ替える設計（2026〜2027年秋はYouTube優先→2027年末〜2028年前半は資格優先→2028年後半以降は並行）。</div>
+      <div class="roadmap-table-wrap">
+        <table class="roadmap-table" id="roadmapTimelineTable"></table>
+      </div>
+    </div>
+
+    <div class="panel roadmap-independence-panel">
+      <h2 style="font-size:16px;">独立ライン（年商目標）</h2>
+      <div class="sub">すん旅事業だけで独立するための年商目標。長期目標（10年後・旅行関連事業を立ち上げる）を数値化したもの。</div>
+      <div class="independence-grid" id="independenceGrid"></div>
+    </div>
+  </section>
+
   <footer>
     <b>データについて</b> — アイデア・タスク・KPI・議事録は 2026-09-02 時点の sun_ai リポジトリ（paid-article-ideas.md / video-ideas.md / PROJECT.md / kpi_monthly.csv.enc）から読み込んだスナップショットです。KPIの実数はこのページのデータベースにのみ保存する前提でここに平文で読み込んでおり、GitHub上のファイルは暗号化されたまま変更していません。「本日の議事録」は直近1回分のみを保持し、次回の25時（深夜1時）定例会議が終わると内容を上書きする運用です。ここでの編集（ステータス変更・新規アイデア・メモ）はこのアプリ内のデータベースに保存され、リポジトリのファイルには自動反映されません。反映したいときはClaudeに「Sun Travelの内容をリポジトリに同期して」と伝えてください。
   </footer>
@@ -588,7 +663,7 @@
     tab:'top',
     qNote:'', qYoutube:'',
     ideas:[], tasks:[], kpiNote:null, kpiYoutube:null, rewardYoutube:null, meeting:null,
-    youtubeStrategyMeeting:null,
+    youtubeStrategyMeeting:null, roadmap:null,
     videoDaily:null, videoColorMap:null, videoSelectedIds:null,
     videoMetric:'views', videoIsolatedId:null,
   };
@@ -686,7 +761,7 @@
     }
     var stats = [
       {label:'総再生時間（累計）', num:c.watchHours.toFixed(1), suffix:'h / '+yt.watchHoursTarget+'h目標'},
-      {label:'視聴回数（累計）', num:c.views.toLocaleString(), suffix:'回'},
+      {label:'視聴回数（累計・長尺のみ）', num:(c.longViews != null ? c.longViews : c.views).toLocaleString(), suffix:'回'},
       {label:'インプレッション数（累計）', num:c.impressions.toLocaleString(), suffix:'回'},
       {label:'クリック率（CTR）', num:c.ctr.toFixed(1), suffix:'%'},
       {label:'平均視聴時間', num:c.avgWatch, suffix:'分:秒'},
@@ -799,7 +874,7 @@
       {dept:'note', label:'note 公開記事数（年末目標）', num:note.cumulative.articles, suffix:'/ '+note.articleTarget+'本',
         pct: Math.min(100, note.cumulative.articles/note.articleTarget*100), spark: nm.map(function(m){return m.articles;}),
         delta: deltaPill(nLast.articles, nPrev.articles, true), color:'var(--note-accent)',
-        note:'累計 '+note.cumulative.articles+'本／'+nLast.month+'のPV '+nLast.pv.toLocaleString()},
+        note:'年末目標まで残り'+Math.max(0, note.articleTarget-note.cumulative.articles)+'本'},
       {dept:'note', label:'note フォロワー累計（年末目標）', num:note.cumulative.followers, suffix:'/ '+note.followerTarget+'人',
         pct: Math.min(100, note.cumulative.followers/note.followerTarget*100), spark: nm.map(function(m){return m.followers;}),
         delta: deltaPill(nLast.followers, nPrev.followers, true), color:'var(--note-accent)',
@@ -811,7 +886,7 @@
       {dept:'youtube', label:'YouTube 長尺動画数（年末目標）', num:yt.cumulative.videos, suffix:'/ '+yt.videoYearTarget+'本',
         pct: Math.min(100, yt.cumulative.videos/yt.videoYearTarget*100), spark: ym.map(function(m){return m.videos;}),
         delta: deltaPill(yLast.videos, yPrev.videos, true), color:'var(--yt-accent)',
-        note:yLast.month+'の視聴回数 '+yLast.views.toLocaleString()+'（月間目標'+yt.target.views.toLocaleString()+'）'},
+        note:'年末目標まで残り'+Math.max(0, yt.videoYearTarget-yt.cumulative.videos)+'本'},
       {dept:'youtube', label:'YouTube チャンネル登録者（年末目標）', num:yt.cumulative.subs, suffix:'/ '+yt.subscriberTarget+'人',
         pct: Math.min(100, yt.cumulative.subs/yt.subscriberTarget*100), spark: ym.map(function(m){return m.subs;}),
         delta: deltaPill(yLast.subs, yPrev.subs, true), color:'var(--yt-accent)',
@@ -819,11 +894,7 @@
       {dept:'youtube', label:'YouTube 視聴時間（年末目標）', num:yt.cumulative.watchHours.toFixed(1)+'h', suffix:'/ '+yt.watchHoursTarget+'h',
         pct: Math.min(100, yt.cumulative.watchHours/yt.watchHoursTarget*100), spark: ym.map(function(m){return m.watchHours;}),
         delta: deltaPill(yLast.watchHours, yPrev.watchHours, true), color:'var(--yt-accent)',
-        note:'2026年累計'+yt.cumulative.watchHours.toFixed(1)+'時間（登録率 '+yLast.subRate.toFixed(2)+'%・CTR '+yLast.ctr.toFixed(1)+'%）'},
-      {dept:'youtube', label:'YouTube 視聴回数（当月目標）', num:yLast.views.toLocaleString(), suffix:'/ '+yt.target.views.toLocaleString()+'回',
-        pct: Math.min(100, yLast.views/yt.target.views*100), spark: ym.map(function(m){return m.views;}),
-        delta: deltaPill(yLast.views, yPrev.views, true), color:'var(--yt-accent)',
-        note:yLast.month+'月実績に対する進捗（年間の目標値は未設定）。2026年累計視聴回数 '+yt.cumulative.views.toLocaleString()+'回'},
+        note:'年末目標まで残り'+Math.max(0, yt.watchHoursTarget-yt.cumulative.watchHours).toFixed(1)+'h'},
     ];
     cards.forEach(function(c){
       var card = el('div','kpi-card');
@@ -1053,9 +1124,74 @@
     body.appendChild(grid);
   }
 
+  // ---------- roadmap tab (2026-2029 long-term career x business roadmap) ----------
+  var MILESTONE_STATUS_LABEL = {current:'進行中', upcoming:'予定', longterm:'長期目標'};
+
+  function renderRoadmap(){
+    var missionEl = document.getElementById('roadmapMission');
+    var updatedEl = document.getElementById('roadmapUpdated');
+    var grid = document.getElementById('milestoneGrid');
+    var tableEl = document.getElementById('roadmapTimelineTable');
+    var indepEl = document.getElementById('independenceGrid');
+    if(!grid) return;
+    var r = state.roadmap;
+    if(!r){
+      grid.innerHTML = '<div class="empty" style="grid-column:1/-1;">読み込み中…</div>';
+      if(missionEl) missionEl.textContent = '読み込み中…';
+      if(tableEl) tableEl.innerHTML = '';
+      if(indepEl) indepEl.innerHTML = '';
+      return;
+    }
+    if(missionEl) missionEl.textContent = r.mission || '';
+    if(updatedEl) updatedEl.textContent = r.updatedAt ? '最終見直し: '+r.updatedAt+'（フルドキュメントを本人が随時編集）' : '';
+
+    grid.innerHTML = '';
+    (r.milestones||[]).forEach(function(m){
+      var card = el('div','milestone-card'+(m.status==='current' ? ' current' : ''));
+      var head = el('div','milestone-head');
+      head.appendChild(el('div','milestone-title', escapeHtml(m.title)));
+      head.appendChild(el('div','milestone-when', escapeHtml(m.when)));
+      card.appendChild(head);
+      card.appendChild(el('span','milestone-status '+m.status, escapeHtml(MILESTONE_STATUS_LABEL[m.status] || m.status)));
+      card.appendChild(el('div','milestone-desc', escapeHtml(m.desc)));
+      if(m.progressKey === 'monetization' && state.kpiYoutube){
+        var c = state.kpiYoutube.cumulative;
+        var subsPct = Math.min(100, c.subs/1000*100);
+        var hoursPct = Math.min(100, c.watchHours/8000*100);
+        var prog = el('div','milestone-progress');
+        prog.innerHTML =
+          '<div class="kpi-bar"><i style="width:'+subsPct.toFixed(1)+'%"></i></div>'+
+          '<div class="kpi-pct">登録者 '+c.subs.toLocaleString()+' / 1,000人（'+Math.round(subsPct)+'%）</div>'+
+          '<div class="kpi-bar" style="margin-top:8px;"><i style="width:'+hoursPct.toFixed(1)+'%"></i></div>'+
+          '<div class="kpi-pct">視聴時間 '+c.watchHours.toFixed(1)+' / 8,000h（'+Math.round(hoursPct)+'%）</div>';
+        card.appendChild(prog);
+      }
+      grid.appendChild(card);
+    });
+
+    if(tableEl){
+      var rows = (r.timeline||[]).map(function(t){
+        return '<tr><td>'+escapeHtml(t.year)+'</td><td>'+escapeHtml(t.youtube)+'</td><td>'+escapeHtml(t.career)+'</td><td>'+escapeHtml(t.study)+'</td><td>'+escapeHtml(t.event)+'</td></tr>';
+      }).join('');
+      tableEl.innerHTML = '<thead><tr><th>年</th><th>YouTube</th><th>本業・キャリア</th><th>資格・学習</th><th>大きなイベント</th></tr></thead><tbody>'+rows+'</tbody>';
+    }
+
+    if(indepEl){
+      indepEl.innerHTML = '';
+      (r.independenceLine||[]).forEach(function(i){
+        var c = el('div','independence-card');
+        c.appendChild(el('div','label', escapeHtml(i.label)));
+        c.appendChild(el('div','amount', escapeHtml(i.amount)));
+        c.appendChild(el('div','basis', escapeHtml(i.basis)));
+        indepEl.appendChild(c);
+      });
+    }
+  }
+
   // ---------- tab navigation ----------
   function renderAll(){
     renderKpi();
+    renderRoadmap();
     if(state.tab === 'top'){
       renderTasks();
     } else if(state.tab === 'note'){
@@ -1074,6 +1210,7 @@
     document.getElementById('tabpanel-top').hidden = tab !== 'top';
     document.getElementById('tabpanel-note').hidden = tab !== 'note';
     document.getElementById('tabpanel-youtube').hidden = tab !== 'youtube';
+    document.getElementById('tabpanel-roadmap').hidden = tab !== 'roadmap';
     Array.from(document.querySelectorAll('#tabbar button')).forEach(function(b){
       var active = b.dataset.tab === tab;
       b.classList.toggle('active', active);
@@ -1526,6 +1663,10 @@
         }
       }
       if(state.tab === 'youtube') renderVideoChart();
+    }, function(){});
+    db.doc('roadmap/main').onSnapshot(function(snap){
+      state.roadmap = snap.exists ? snap.data() : null;
+      renderRoadmap();
     }, function(){});
     loadKpiMemo();
   });

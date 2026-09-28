@@ -3,6 +3,11 @@
 視聴回数・総再生時間・インプレッション・CTR・平均視聴時間・登録者数の「チャンネル全体の累計値」を、
 日付ごとの履歴として `sun_develop/materials/youtube_channel_daily.json` に毎日1行ずつ記録するスクリプト。
 
+`views`はチャンネル全体（ショート・ライブ配信等を含む）の累計視聴回数、`longViews`はYouTube Analytics APIの
+`creatorContentType==VIDEO_ON_DEMAND`フィルタで絞り込んだ長尺（通常動画）のみの累計視聴回数（2026-09-28追加、
+本人依頼：ダッシュボードのYouTube視聴回数表示をショート抜きにしたい、に対応）。ダッシュボード側は
+`longViews`を表示に使い、`views`はチャンネル全体の把握用に残す。
+
 ## 前提として理解しておいてほしいこと（重要な制約）
 
 - **完全な自動化はできません。** 無人のクラウドルーティン（RemoteTrigger）からArtifactの`write_db`を呼ぶと
