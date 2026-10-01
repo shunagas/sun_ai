@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Sun Travel</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
@@ -466,14 +467,14 @@
     <div class="kpi-row" id="kpiRow"></div>
     <div class="rail-standalone">
       <div class="panel">
-        <h2 style="font-size:16px;">9月の重点タスク</h2>
+        <h2 style="font-size:16px;">10月の重点タスク</h2>
         <div class="sub">PROJECT.md 由来のスナップショット。タップでステータス切替。</div>
         <div id="tasks"></div>
       </div>
 
       <div class="panel">
         <h2 style="font-size:16px;">臨時会議</h2>
-        <div class="sub">定例（毎日25:00 JST・深夜1時）とは別に、その場で会議を起動します（YouTubeは進捗・戦略会議、noteはアイデア会議）。</div>
+        <div class="sub">定例（noteは毎日25:00 JST・深夜1時、YouTubeは毎月初）とは別に、その場で会議を起動します（YouTubeは進捗・戦略会議、noteはアイデア会議）。</div>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <a class="action-btn" href="https://claude.ai/code/routines/trig_01Cnv16qFhBLUU73RPJ9Nmfh" target="_blank" rel="noopener">
             <span class="lbl">note team を開く<small>読者視点・収益性・差別化の3視点</small></span>
@@ -489,7 +490,7 @@
       <div class="panel kpi-manual">
         <h2 style="font-size:16px;">運営メモ</h2>
         <div class="sub">KPIの実数はこのページのデータベースにのみ保存され、GitHubリポジトリには一切書き込まれません。ここは気づき・来月への申し送りの自由記述欄です。</div>
-        <textarea id="kpiMemo" placeholder="例：登録率の低下は9月の羽田/香港ラウンジ動画のCTA改善で反転を狙う…"></textarea>
+        <textarea id="kpiMemo" placeholder="例：10月はスペインシリーズの導線整備で登録率の反転を狙う…"></textarea>
         <button class="btn primary" id="saveKpi" style="width:100%;">保存</button>
         <div class="saved-at" id="kpiSavedAt"></div>
       </div>
@@ -882,7 +883,7 @@
       {dept:'note', label:'note 有料記事売上（年末目標）', num:'¥'+note.cumulative.paidRevenue.toLocaleString(), suffix:'/ ¥'+note.revenueTarget.toLocaleString(),
         pct: Math.min(100, note.cumulative.paidRevenue/note.revenueTarget*100), spark: nm.map(function(m){return m.paidRevenue;}),
         delta: deltaPill(nLast.paidRevenue, nPrev.paidRevenue, true), color:'var(--note-accent)',
-        note:'新規有料記事は5月以降0本。2026年累計¥'+note.cumulative.paidRevenue.toLocaleString()},
+        note:'年末目標まで残り¥'+Math.max(0, note.revenueTarget-note.cumulative.paidRevenue).toLocaleString()},
       {dept:'youtube', label:'YouTube 長尺動画数（年末目標）', num:yt.cumulative.videos, suffix:'/ '+yt.videoYearTarget+'本',
         pct: Math.min(100, yt.cumulative.videos/yt.videoYearTarget*100), spark: ym.map(function(m){return m.videos;}),
         delta: deltaPill(yLast.videos, yPrev.videos, true), color:'var(--yt-accent)',
@@ -1672,3 +1673,5 @@
   });
 })();
 </script>
+
+</body></html>
